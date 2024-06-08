@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="../server/index.js"></script>
+
+    <script>
+        import { JWT_SECRET } from './index.js';
+        function myFunction(){
+            let a = document.getElementById("Aa")
+            // a.innerHTML = "AA"
+            a.innerHTML = JWT_SECRET
+        }
+    </script>
+</head>
+<body onload="myFunction()">
+    This is index.html
+    <h1>Here is the code</h1>
+    <div id="problems_statements">
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Subsequence</td>
+            </tr>
+        </table>
+
+        {{JWT_SECRET}}
+        {JWT_SECRET}
+        $JWT_SECRET
+        ${JWT_SECRET}
+        JWT_SECRET
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        <div id="Aa">aaaaaaaaaaaaaaaaaaaaa</div>
+        <!-- <script>
+            document.write(JWT_SECRET)
+          </script> -->
+    </div>
+</body>
+</html>
