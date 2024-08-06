@@ -3,6 +3,11 @@ import express, { response } from 'express'
 const app = express()
 const port = 5000
 
+import cors from 'cors'
+
+
+app.use(cors());
+
 // var jwt = require('jsonwebtoken')
 import jwt from 'jsonwebtoken'
 
@@ -32,6 +37,10 @@ const PROBLEMS = [{
 {
     problemId: 2,
     title: "Sudoku Solver"
+},
+{
+    problemId: 3,
+    title: "Container With Most Water"
 }];
 
 let USERS = [{
@@ -57,7 +66,8 @@ console.log("USER_ID_COUNTER", USER_ID_COUNTER)
 app.use(express.json())
 
 app.get('/', function(req, res){
-    res.send('Hello!! ' + USER_ID_COUNTER)
+    res.send('Hello!! ')
+    // res.send('Hello!! ' + USER_ID_COUNTER)
     // res.send(USER_ID_COUNTER)
 })
 
@@ -67,6 +77,15 @@ app.get('/problems', function(req, res){
         problems: filteredProblems
     })
 })
+
+// app.get('/api/problems', (req, res) => {
+//     console.log('GET /api/problems');
+//     const filteredProblems = PROBLEMS.map((x) => ({
+//       problemId: x.problemId,
+//       title: x.title,
+//     }));
+//     res.json({ problems: filteredProblems });
+//   });
 
 app.get('/problem/:id', (req, res) => {
     const id = req.params.id;
@@ -79,7 +98,7 @@ app.get('/problem/:id', (req, res) => {
     // const problem = PROBLEMS.find(checkAge);
     if(!problem){
         // res.send(problem)
-        res.send('hello')
+        res.send('Problem not found')
         return res.status(411).json({})
     }
 
@@ -146,7 +165,7 @@ app.post('/login', function(req, res){
         }
         else{
             res.json({
-                msg: "Invalid username or password"  // also assign status like 403 ... check the harkirat video at 20:26
+                msg: "Invalid username or password"  
             })
         }
     }

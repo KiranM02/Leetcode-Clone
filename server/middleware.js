@@ -72,8 +72,8 @@ export function auth(req, res, next) {
         return res.status(403).json({ msg: "Missing auth header" });
     }
 
-    console.log('Hellooooo');
     try {
+        
         const decoded = jwt.verify(authHeader, JWT_SECRET);
 
         if (decoded && decoded.id) {
