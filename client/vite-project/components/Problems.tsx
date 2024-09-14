@@ -130,7 +130,7 @@ const Problems: React.FC = () => {
     const fetchProblems = async () => {
       try {
         // const response = await fetch('/api/problems');  Replacing the word api with actual api http://localhost:5000/
-        const response = await fetch(' problems');
+        const response = await fetch('problems');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -140,7 +140,7 @@ const Problems: React.FC = () => {
 //    } catch (err instanceof Error) {   //check instaceof in other condition 
       } catch (err) {
         if (err instanceof Error) {
-          setError(err.message);
+          setError('The error is as follows '+err.message);
         } else {
           setError('An unknown error occurred');
         }
